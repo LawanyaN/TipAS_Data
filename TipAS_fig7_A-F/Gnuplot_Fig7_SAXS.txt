@@ -1,0 +1,308 @@
+# cd './media/alessandra/TOSHIBA_EXT/Post-Doc/DAbramo/TipAS/Draft/GitHub/TipAS_fig7_A-F/'
+
+#################################
+# SAXS Data all temperatures
+
+# fit Gnom 8 nm
+reset
+cd './TipAS_fig7_A-F/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0.1:4]
+set logscale x
+set logscale y
+set yrange [0.00007:0.05]
+set xlabel 'q (nm^{-1})' offset 0,1.2
+set ylabel 'I(q) (cm^{-1}/mg{\267}ml^{-1})' offset 2,0
+set ytics offset 0.5,0
+set xtics offset 0,0.5
+set format y '10^{%T}'
+set key top right
+set bars 0.5
+set key samplen 0.1
+#set key font ",16"
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+factor=2.8747E-9 # convert from squared excess electrons to cm-1/(mg/ml)
+scale=0.6 # further scaling needed
+plot 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2):($3) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 10 t '283 K'
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 15 t '288 K'
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 20 t '293 K'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 25 t '298 K'
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 30 t '303 K'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 35 t '308 K'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2) w p pt 7 ps 0.3 lc palette cb 40 t '313 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 10 notitle #t '283 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 15 notitle #t '288 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 20 notitle #t '293 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 25 notitle #t '298 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 30 notitle #t '303 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 35 notitle #t '308 K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($4) w l lt 1 lw 2 lc palette cb 40 notitle #t '313 K'
+#repl '../../MD_SAXS/SWAXS_calc/280K_swaxs_final.xvg' u ($1):($2*factor*scale) w l lt 1 lw 3 lc -1 t 'MD 280 K'
+#repl '../../MD_SAXS/SWAXS_calc/300K_swaxs_final.xvg' u ($1):($2*factor*scale) w l lt 1 lw 3 lc -1 t 'MD 300 K'
+#repl '../../MD_SAXS/SWAXS_calc/320K_swaxs_final.xvg' u ($1):($2*factor*scale) w l lt 1 lw 3 lc -1 t 'MD 320 K'
+#repl '../../MD_SAXS/SWAXS_calc/340K_swaxs_final.xvg' u ($1):($2*factor*scale) w l lt 1 lw 3 lc -1 t 'MD 340 K'
+#repl '../../MD_SAXS/SWAXS_calc/saxs_final_340K_new.dat' u ($1):($2*factor*scale) w l lt 1 lw 3 lc -1 t 'MD 340 K'
+unset logscale x
+set key top right
+set xrange [0:3.5]
+set yrange [0.00007:0.05]
+set xtics 0, 1
+set mxtics 5
+repl
+set terminal svg dashed size 450,400 enhanced font 'FreeSans,18'
+set output './Fig_7A.svg'
+repl
+set term qt
+
+# POFR inset
+# (size parameters from GnomManual_lowq_Dmax8)
+reset
+cd './TipAS_fig7_A-F/GnomManual_lowq_Dmax8/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:8]
+set yrange [0:5]
+set format y "%2.0f"
+set xlabel 'r (nm)' offset 0,1.4
+set ylabel 'P(r){\267}10^{4}' offset 2.6,0
+set ytics 0,2 offset 0.5,0
+set mytics 2
+set xtics 0,2 offset 0,0.5
+set mxtics 2
+set key top right
+set key samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+unset key
+plot './pofr/pofr_TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000):($3*10000) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc 0 notitle
+repl './pofr/pofr_TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 10 t '283 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 15 t '288 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 20 t '293 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 25 t '298 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 30 t '303 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 35 t '308 K'
+repl './pofr/pofr_TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1):($2*10000) w l lt 1lw 3 lc palette cb 40 t '313 K'
+set terminal svg dashed size 230,200 enhanced font 'FreeSans,16'
+set output './Fig_7A-inset.svg'
+repl
+set term qt
+
+################################
+# Rg and I0 vs. Temp
+
+# Rg low q and Gnom 8 nm
+reset
+set term qt
+cd './TipAS_fig7_A-F/'
+set termoption enhanced
+set encoding iso_8859_1
+set term qt
+set xrange [280:315]
+set yrange [2.25:2.75]
+set xlabel 'Temperature (K)' offset 0,1.2
+set format y '%5.1f'
+set ylabel 'R_g (nm)' offset 3,0
+set xtics 270,10 offset 0,0.5
+set mxtics 4
+set ytics 0, 0.1 offset 0.5,0
+set mytics 2
+set key top left reverse
+set key samplen 0.1
+set key Left
+plot "./DatRg_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_back_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_back_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./DatRg_lowq_vsT.dat" u ($1):($2):($3) w lp pt 7 ps 0.7 lc 6 dt 1 lw 1 t 'Guinier fit'
+repl "./DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w p pt 9 ps 0.7 lc 6 notitle
+repl "./GnomManual_lowq_Dmax8/Results_vsT.dat" u ($1):($2):($3) w lp pt 7 ps 0.7 lc -1 dt 1 lw 1 t 'Fourier transform'
+repl "./GnomManual_lowq_Dmax8/Results_back_vsT.dat" u ($1):($2):($3) w p pt 9 ps 0.7 lc -1 notitle
+set terminal svg dashed size 450,250 enhanced font 'FreeSans,18'
+set output './Fig_7B.svg'
+repl
+set term qt
+
+# I(0) low q and Gnom 8 nm
+reset
+set term qt
+cd './TipAS_fig7_A-F/'
+set termoption enhanced
+set encoding iso_8859_1
+set term qt
+set xrange [280:315]
+set yrange [0.014:0.021]
+set xlabel 'Temperature (K)' offset 0,1.2
+set format y '%5.3f'
+set ylabel 'I(0) (cm^{-1}/mg{\267}ml^{-1})' offset 3,0
+set xtics 270,10 offset 0,0.5
+set mxtics 4
+set ytics 0, 0.005 offset 0.5,0
+set mytics 5
+unset key
+multerror=1
+plot "./DatRg_lowq_vsT.dat" u ($1):($4):($5*multerror) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./DatRg_back_lowq_vsT.dat" u ($1):($4):($5*multerror) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_vsT.dat" u ($1):($4):($5*multerror) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./GnomManual_lowq_Dmax8/Results_back_vsT.dat" u ($1):($4):($5*multerror) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+#
+repl "./DatRg_lowq_vsT.dat" u ($1):($4):($5*multerror) w lp pt 7 ps 0.7 lc 6 dt 1 lw 1 t 'Guinier fit'
+repl "./DatRg_back_lowq_vsT.dat" u ($1):($4):($5*multerror) w p pt 9 ps 0.7 lc 6 notitle
+repl "./GnomManual_lowq_Dmax8/Results_vsT.dat" u ($1):($4):($5*multerror) w lp pt 7 ps 0.7 lc -1 dt 1 lw 1 t 'Fourier transform'
+repl "./GnomManual_lowq_Dmax8/Results_back_vsT.dat" u ($1):($4):($5*multerror) w p pt 9 ps 0.7 lc -1 notitle
+set terminal svg dashed size 450,250 enhanced font 'FreeSans,18'
+set output './Fig_7C.svg'
+repl
+set term qt
+
+################################
+# Kratky dimensionless
+
+# (size parameters from GnomManual_lowq_Dmax8) only fits
+reset
+cd './TipAS_fig7_A-F/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg10=2.381
+Rg15=2.384
+Rg20=2.443
+Rg25=2.398
+Rg30=2.435
+Rg35=2.576
+Rg40=2.621
+I010=1.93E-02
+I015=1.85E-02
+I020=1.83E-02
+I025=1.72E-02
+I030=1.67E-02
+I035=1.63E-02
+I040=1.54E-02
+pl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg10):(($4/I010)*($1*Rg10)**2) w l lt 1 lw 2 lc palette cb 10 notitle#t'283K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg15):(($4/I015)*($1*Rg15)**2) w l lt 1 lw 2 lc palette cb 15 notitle#t'288K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg20):(($4/I020)*($1*Rg20)**2) w l lt 1 lw 2 lc palette cb 20 notitle#t'293K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg25):(($4/I025)*($1*Rg25)**2) w l lt 1 lw 2 lc palette cb 25 notitle#t'298K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg30):(($4/I030)*($1*Rg30)**2) w l lt 1 lw 2 lc palette cb 30 notitle#t'303K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg35):(($4/I035)*($1*Rg35)**2) w l lt 1 lw 2 lc palette cb 35 notitle#t'308K'
+repl './GnomManual_lowq_Dmax8/fits/fit_TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.out' u ($1*Rg40):(($4/I040)*($1*Rg40)**2) w l lt 1 lw 2 lc palette cb 40 notitle#t'313K'
+set terminal svg dashed size 450,250 enhanced font 'FreeSans,18'
+set output './Fig_7D.svg'
+repl
+set term qt
+
+# Kratky dimensionless SAXS WAXS calc MD
+reset
+cd './TipAS_fig7_A-F/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1 maxrows 2
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg280=2.17
+Rg300=2.18
+Rg320=2.22
+Rg340=1.84
+Rg340new=2.35
+#Rg360=2.57
+I0280=7.75E-02
+I0300=7.04E-02
+I0320=4.86E-02
+I0340=2.67E-02
+I0340new=5.57E-02
+#I0360=1.57E-02
+factor=2.8747E-9 # convert from squared excess electrons to cm-1/(mg/ml)
+scale=1 # further scaling needed
+plot '280K_swaxs_final.xvg' u ($1*Rg280):(($2/I0280)*factor*scale*($1*Rg280)**2) w l lt 1 lw 3 lc palette cb 10 t '280 K'
+repl '300K_swaxs_final.xvg' u ($1*Rg300):(($2/I0300)*factor*scale*($1*Rg300)**2) w l lt 1 lw 3 lc palette cb 30 t '300 K'
+repl '320K_swaxs_final.xvg' u ($1*Rg320):(($2/I0320)*factor*scale*($1*Rg320)**2) w l lt 1 lw 3 lc -1 t '320 K'
+repl 'saxs_final_340K_new.dat' u ($1*Rg340new):(($2/I0340new)*factor*scale*($1*Rg340new)**2) w l lt 1 lw 3 lc 7 t '340 K'
+set terminal svg dashed size 450,250 enhanced font 'FreeSans,18'
+set output './Fig_7E.svg'
+repl
+set term qt
+
+##################################################################
+# Kratky plot SAXS data selected temperatures and WAXS calc
+reset
+cd '/media/alessandra/TOSHIBA_EXT/Post-Doc/DAbramo/TipAS/MergedData/'
+set termoption enhanced
+set encoding iso_8859_1
+set key top right
+set xrange [0:3.5]
+set yrange [0:0.005]
+set ytics 0, 0.001 offset 0.5,0
+set format y "%5.3f"
+set mytics 2
+set xtics 0, 1 offset 0,0.5
+set mxtics 5
+set xlabel 'q (nm^{-1})' offset 0,1.2
+set ylabel 'I(q){\267}q^2' offset 2,0
+set key top right
+set bars 0.5
+set key samplen 1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+factor=2.8747E-9 # convert from squared excess electrons to cm-1/(mg/ml)
+scale=0.24
+scale1=0.37 # further scaling needed
+scale2=0.23 # further scaling needed
+plot 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2):($3*$1**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2):($3*$1**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2):($3*$1**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2):($3*$1**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '288 K'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '298 K'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '308 K'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1):($2*$1**2) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '313 K'
+repl '300K_swaxs_final.xvg' u ($1):($2*factor*scale*$1**2) w l lt 1 lw 3 dt (3,3,3,3) lc -1 t 'MD 300 K'
+repl '320K_swaxs_final.xvg' u ($1):($2*factor*scale1*$1**2) w l lt 1 lw 3 lc -1 t 'MD 320 K'
+set terminal svg dashed size 450,400 enhanced font 'FreeSans,18'
+set output './Fig_7F.svg'
+repl
+set term qt
+
