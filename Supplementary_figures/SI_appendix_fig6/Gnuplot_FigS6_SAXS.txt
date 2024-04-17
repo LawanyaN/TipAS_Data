@@ -1,0 +1,502 @@
+#####################################
+# Figure Supplementary S6
+#####################################
+
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Data_202204_1.96/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:1.2]
+set yrange [-6.3:-3.3]
+set xlabel 'q^2 (nm^{-2})' offset 0,1.2
+set ylabel 'Ln(I(q))' offset 2,0
+set ytics offset 0.5,0
+set xtics offset 0,0.5
+#set format y '%2.0f'
+set xtics 0,0.2
+set mxtics 2
+set ytics -6,1
+set mytics 2
+set key top right
+set key samplen 0.5
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+plot 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 10 notitle #t '10{\260}C'
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 15 notitle #t '15{\260}C'
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 20 notitle #t '20{\260}C'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 25 notitle #t '25{\260}C'
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 30 notitle #t '30{\260}C'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 35 notitle #t '35{\260}C'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 40 notitle #t '40{\260}C'
+Rlowq=2.37
+Rhighq=1.83
+Guinierlowq(x)=(x>(0.11**2)&x<(0.68**2))?(log(0.0185273)-((Rlowq**2)/3)*x):1/0
+Guinierhighq(x)=(x>(0.74**2)&x<(1.08**2))?(log(0.0126213)-((Rhighq**2)/3)*x):1/0
+repl Guinierlowq(x) w l lt 1 lw 2 dt 1 lc -1 t 'R_g = 2.4 nm'
+repl Guinierhighq(x) w l lt 1 lw 2 dt (4,4,4,4) lc -1 t 'R_g = 1.8 nm'
+set terminal svg dashed size 440,420 enhanced font 'FreeSans,18'
+set output './Fig_S6_A.svg'
+repl
+set term qt
+
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Data_BM29/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:1.2]
+set yrange [-6.3:-3.3]
+set xlabel 'q^2 (nm^{-2})' offset 0,1.2
+set ylabel 'Ln(I(q))' offset 2,0
+set ytics offset 0.5,0
+set xtics offset 0,0.5
+#set format y '%2.0f'
+set xtics 0,0.2
+set mxtics 2
+set ytics -6,1
+set mytics 2
+set key top right
+set key samplen 0.5
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+plot 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 10 notitle #t '10{\260}C'
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 15 notitle #t '15{\260}C'
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 20 notitle #t '20{\260}C'
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 25 notitle #t '25{\260}C'
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 30 notitle #t '30{\260}C'
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 35 notitle #t '35{\260}C'
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 40 notitle #t '40{\260}C'
+Rlowq=3.1
+Rhighq=1.937
+Guinierlowq(x)=(x>(0.2**2)&x<(0.33**2))?(log(0.0273)-((Rlowq**2)/3)*x):1/0
+Guinierhighq(x)=(x>(0.74**2)&x<(1.08**2))?(log(0.0156945)-((Rhighq**2)/3)*x):1/0
+#set arrow nohead from 1/(Rgox)**2,1.25 to 1/(Rgox)**2,Guinier2(1/(Rgox)**2) dt 3 lw 2 lc 0 
+#set arrow nohead from 1/(Rgred)**2,1.25 to 1/(Rgred)**2,(log(9.98)-((Rgred**2)/3)*(1/(Rgred)**2)) dt 3 lw 2 lc 0 
+repl Guinierlowq(x) w l lt 1 lw 2 dt 1 lc -1 t 'R_g = 3.1 nm'
+repl Guinierhighq(x) w l lt 1 lw 2 dt (4,4,4,4) lc -1 t 'R_g = 1.9 nm'
+set terminal svg dashed size 440,420 enhanced font 'FreeSans,18'
+set output 'Fig_S6_B.svg'
+repl
+set term qt
+
+#inset
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Data_BM29/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:0.2]
+set yrange [-4.4:-3.4]
+set xlabel '' offset 0,1.2
+set ylabel '' offset 2,0
+set ytics offset 0.5,0
+set xtics offset 0,0.5
+set format y ''
+set xtics 0,0.1
+set mxtics 2
+set ytics -6,0.2
+set mytics 2
+set key top right
+set key samplen 0.5
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+plot 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 10 notitle #t '10{\260}C'
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '15{\260}C'
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 20 notitle #t '20{\260}C'
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '25{\260}C'
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 30 notitle #t '30{\260}C'
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '35{\260}C'
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '40{\260}C'
+Rlowq=3.1
+Rhighq=1.937
+Guinierlowq(x)=(x>(0.2**2)&x<(0.33**2))?(log(0.0273)-((Rlowq**2)/3)*x):1/0
+repl Guinierlowq(x) w l lt 1 lw 2 dt 1 lc -1 notitle
+set terminal svg dashed size 240,220 enhanced font 'FreeSans,18'
+set output 'Fig_S6_Binset.svg'
+repl
+set term qt
+
+# Guinier plot
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Merged_ScaledToLab/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:1.2]
+set yrange [-6.3:-3.3]
+set xlabel 'q^2 (nm^{-2})' offset 0,1.2
+set ylabel 'Ln(I(q))' offset 2,0
+set ytics offset 0.5,0
+set xtics offset 0,0.5
+#set format y '%2.0f'
+set xtics 0,0.2
+set mxtics 2
+set ytics -6,1
+set mytics 2
+set key top right
+set key samplen 0.5
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+plot 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)):($3/$2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 10 notitle #t '10{\260}C'
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 15 notitle #t '15{\260}C'
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 20 notitle #t '20{\260}C'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 25 notitle #t '25{\260}C'
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 30 notitle #t '30{\260}C'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 35 notitle #t '35{\260}C'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u (($1)**2):(log($2)) w p pt 7 ps 0.4 lc palette cb 40 notitle #t '40{\260}C'
+Rlowq=2.37
+Rhighq=1.83
+Guinierlowq(x)=(x>(0.11**2)&x<(0.68**2))?(log(0.0185273)-((Rlowq**2)/3)*x):1/0
+Guinierhighq(x)=(x>(0.74**2)&x<(1.08**2))?(log(0.0126213)-((Rhighq**2)/3)*x):1/0
+repl Guinierlowq(x) w l lt 1 lw 2 dt 1 lc -1 t 'R_g = 2.4 nm'
+repl Guinierhighq(x) w l lt 1 lw 2 dt (4,4,4,4) lc -1 t 'R_g = 1.8 nm'
+set terminal svg dashed size 440,420 enhanced font 'FreeSans,18'
+set output 'Fig_S6_C.svg'
+repl
+set term qt
+
+
+## Rg vs. temp
+reset
+set term qt
+cd './Supplementary_figures/SI_appendix_fig6/'
+set termoption enhanced
+set encoding iso_8859_1
+set term qt
+set xrange [278:345]
+set yrange [1.6:3.6]
+set xlabel 'Temperature (K)' offset 0,1.2
+set format y '%4.1f'
+set ylabel 'R_g (nm)' offset 2,0
+set xtics 270,10 offset 0,0.5
+set mxtics 5
+set ytics 0, 0.4 offset 0.5,0
+set mytics 4
+set key samplen 0.1
+plot "./Data_202204_1.96/DatRg_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_lowq_30-55_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_back_lowq_30-55_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+#
+repl "./Data_202204_1.96/DatRg_lowq_vsT.dat" u ($1):($2):($3) w lp pt 7 ps 0.7 lc -1 dt 1 lw 1 t 'Lab'
+repl "./Data_202204_1.96/DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w p pt 9 ps 0.7 lc -1 notitle
+repl "./Data_BM29/DatRg_lowq_30-55_vsT.dat" u ($1):($2):($3) w lp pt 7 ps 0.7 lc 1 dt 1 lw 1 t 'BM29'
+repl "./Data_BM29/DatRg_back_lowq_30-55_vsT.dat" u ($1):($2):($3) w p pt 9 ps 0.7 lc 1 notitle
+repl "./Merged_ScaledToLab/DatRg_lowq_vsT.dat" u ($1):($2):($3) w lp pt 7 ps 0.7 lc 6 dt 1 lw 1 t 'merged'
+repl "./Merged_ScaledToLab/DatRg_back_lowq_vsT.dat" u ($1):($2):($3) w p pt 9 ps 0.7 lc 6 notitle
+repl "./Data_202204_1.96/DatRg_highq_vsT.dat" u ($1):($2):($3) w lp pt 6 ps 0.7 lc -1 dt 2 lw 1 notitle
+repl "./Data_202204_1.96/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w p pt 8 ps 0.7 lc -1 notitle
+repl "./Data_BM29/DatRg_highq_vsT.dat" u ($1):($2):($3) w lp pt 6 ps 0.7 lc 1 dt 2 lw 1 notitle
+repl "./Data_BM29/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w p pt 8 ps 0.7 lc 1 notitle
+repl "./Merged_ScaledToLab/DatRg_highq_vsT.dat" u ($1):($2):($3) w lp pt 6 ps 0.7 lc 6 dt 2 lw 1 notitle
+repl "./Merged_ScaledToLab/DatRg_back_highq_vsT.dat" u ($1):($2):($3) w p pt 8 ps 0.7 lc 6 notitle
+repl './MD_SAXS/Results_vsT.dat' u 1:5:6 w yerrorbars pt 7 ps 0.1 lc 0 lw 0.5 notitle
+repl './MD_SAXS/Results_vsT.dat' u 1:5:6 w lp pt 7 ps 0.7 lc 0 dt 1 lw 1 t "MD"
+set terminal svg dashed size 450,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_D.svg'
+repl
+set term qt
+
+## I(0) vs. temp
+reset
+set term qt
+cd './Supplementary_figures/SI_appendix_fig6/'
+set termoption enhanced
+set encoding iso_8859_1
+set term qt
+set xrange [278:345]
+set yrange [0.007:0.033]
+set xlabel 'Temperature (K)' offset 0,1.2
+set format y '%4.2f'
+set ylabel 'I(0) (cm^{-1}/mg{\267}ml^{-1})' offset 2,0
+set xtics 270,10 offset 0,0.5
+set mxtics 4
+set ytics 0, 0.01 offset 0.5,0
+set mytics 2
+set key samplen 0.1 top right
+scale=0.4
+plot "./Data_202204_1.96/DatRg_lowq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_back_lowq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_lowq_30-55_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_back_lowq_30-55_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_lowq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_back_lowq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_202204_1.96/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Data_BM29/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+repl "./Merged_ScaledToLab/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w yerrorbars pt 7 ps 0.1 lc -1 lw 0.5 notitle
+#
+repl "./Data_202204_1.96/DatRg_lowq_vsT.dat" u ($1):($4):($5) w lp pt 7 ps 0.7 lc -1 dt 1 lw 1 notitle #t 'Lab'
+repl "./Data_202204_1.96/DatRg_back_lowq_vsT.dat" u ($1):($4):($5) w p pt 9 ps 0.7 lc -1 notitle
+repl "./Data_BM29/DatRg_lowq_30-55_vsT.dat" u ($1):($4):($5) w lp pt 7 ps 0.7 lc 1 dt 1 lw 1 notitle #t 'BM29'
+repl "./Data_BM29/DatRg_back_lowq_30-55_vsT.dat" u ($1):($4):($5) w p pt 9 ps 0.7 lc 1 notitle
+repl "./Merged_ScaledToLab/DatRg_lowq_vsT.dat" u ($1):($4):($5) w lp pt 7 ps 0.7 lc 6 dt 1 lw 1 notitle #t 'merged'
+repl "./Merged_ScaledToLab/DatRg_back_lowq_vsT.dat" u ($1):($4):($5) w p pt 9 ps 0.7 lc 6 notitle
+repl "./Data_202204_1.96/DatRg_highq_vsT.dat" u ($1):($4):($5) w lp pt 6 ps 0.7 lc -1 dt 2 lw 1 notitle
+repl "./Data_202204_1.96/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w p pt 8 ps 0.7 lc -1 notitle
+repl "./Data_BM29/DatRg_highq_vsT.dat" u ($1):($4):($5) w lp pt 6 ps 0.7 lc 1 dt 2 lw 1 notitle
+repl "./Data_BM29/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w p pt 8 ps 0.7 lc 1 notitle
+repl "./Merged_ScaledToLab/DatRg_highq_vsT.dat" u ($1):($4):($5) w lp pt 6 ps 0.7 lc 6 dt 2 lw 1 notitle
+repl "./Merged_ScaledToLab/DatRg_back_highq_vsT.dat" u ($1):($4):($5) w p pt 8 ps 0.7 lc 6 notitle
+repl './MD_SAXS/Results_vsT.dat' u 1:($4*scale) w lp pt 7 ps 0.7 lc 0 dt 1 lw 1 t "MD (x0.4)"
+set terminal svg dashed size 450,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_E.svg'
+repl
+set term qt
+
+# Normalized Kratky Guinier
+
+# (size parameters from Guinier fit 0.2-0.33 nm-1)
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Data_BM29/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg10=3.01482
+Rg15=3.01954
+Rg20=3.1044
+Rg25=3.21303
+Rg30=3.26363
+Rg35=3.35423
+Rg40=3.48148
+I010=2.85E-02
+I015=2.77E-02
+I020=2.73E-02
+I025=2.66E-02
+I030=2.63E-02
+I035=2.58E-02
+I040=2.53E-02
+plot 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2):(($3/I010)*($1*Rg10)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2):(($3/I015)*($1*Rg15)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2):(($3/I020)*($1*Rg20)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2):(($3/I025)*($1*Rg25)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2):(($3/I030)*($1*Rg30)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2):(($3/I035)*($1*Rg35)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2):(($3/I040)*($1*Rg40)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2) w p pt 7 ps 0.3 lc palette cb 10 notitle #t '283 K'
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '288 K'
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2) w p pt 7 ps 0.3 lc palette cb 20 notitle #t '293 K'
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '298 K'
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2) w p pt 7 ps 0.3 lc palette cb 30 notitle #t '303 K'
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '308 K'
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '313 K'
+set terminal svg dashed size 350,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_F.svg'
+repl
+set term qt
+
+# (size parameters from Guinier fit 0.74-1.08 nm-1)
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Data_BM29/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg10=1.94631
+Rg15=1.94471
+Rg20=1.93666
+Rg25=1.93016
+Rg30=1.9053
+Rg35=1.8971
+Rg40=1.89189
+I010=1.71E-02
+I015=1.65E-02
+I020=1.57E-02
+I025=1.47E-02
+I030=1.38E-02
+I035=1.28E-02
+I040=1.15E-02
+plot 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2):(($3/I010)*($1*Rg10)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2):(($3/I015)*($1*Rg15)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2):(($3/I020)*($1*Rg20)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2):(($3/I025)*($1*Rg25)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2):(($3/I030)*($1*Rg30)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2):(($3/I035)*($1*Rg35)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2):(($3/I040)*($1*Rg40)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_NaP_10deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2) w p pt 7 ps 0.3 lc palette cb 10 notitle #t '283 K'
+repl 'TipAS_NaP_15deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '288 K'
+repl 'TipAS_NaP_20deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2) w p pt 7 ps 0.3 lc palette cb 20 notitle #t '293 K'
+repl 'TipAS_NaP_25deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '298 K'
+repl 'TipAS_NaP_30deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2) w p pt 7 ps 0.3 lc palette cb 30 notitle #t '303 K'
+repl 'TipAS_NaP_35deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '308 K'
+repl 'TipAS_NaP_40deg_1-2_ave_sub_cm-1_divconc.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '313 K'
+set terminal svg dashed size 350,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_G.svg'
+repl
+set term qt
+
+# Normalized Kratky Merged all T 
+
+# (size parameters from Guinier fit 0.11-0.68 nm-1)
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Merged_ScaledToLab/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg10=2.37356
+Rg15=2.394
+Rg20=2.37331
+Rg25=2.43962
+Rg30=2.45895
+Rg35=2.58742
+Rg40=2.672
+I010=1.98E-02
+I015=1.92E-02
+I020=1.85E-02
+I025=1.80E-02
+I030=1.73E-02
+I035=1.70E-02
+I040=1.62E-02
+plot 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2):(($3/I010)*($1*Rg10)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2):(($3/I015)*($1*Rg15)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2):(($3/I020)*($1*Rg20)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2):(($3/I025)*($1*Rg25)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2):(($3/I030)*($1*Rg30)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2):(($3/I035)*($1*Rg35)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2):(($3/I040)*($1*Rg40)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2) w p pt 7 ps 0.3 lc palette cb 10 notitle #t '283 K'
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '288 K'
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2) w p pt 7 ps 0.3 lc palette cb 20 notitle #t '293 K'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '298 K'
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2) w p pt 7 ps 0.3 lc palette cb 30 notitle #t '303 K'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '308 K'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '313 K'
+set terminal svg dashed size 350,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_H.svg'
+repl
+set term qt
+
+# (size parameters from Guinier fit 0.74-1.08 nm-1)
+reset
+cd './Supplementary_figures/SI_appendix_fig6/Merged_ScaledToLab/'
+set termoption enhanced
+set encoding iso_8859_1
+set xrange [0:7]
+set ytics 0,0.5 offset 0.5,0
+set xtics offset 0,0.5
+set mytics 2
+set mxtics 2
+set xlabel 'qR_g' offset 0,1.4
+set format y "%3.1f"
+set yrange [0.05:1.95]
+set ylabel '[I(q)/I(0)](qR_g)^2'offset 2,0
+set key top right samplen 0.1
+set palette model HSV functions 0.75*(1-gray),1,1
+set cbrange [10:40]
+unset colorbox
+set arrow nohead from 1.7320508076,0 to 1.7320508076,2 lt 3 lc 0
+set arrow nohead from 0,1.104 to 7,1.104 lt 3 lc 0
+Rg10=1.85741
+Rg15=1.85463
+Rg20=1.82448
+Rg25=1.85569
+Rg30=1.83989
+Rg35=1.77915
+Rg40=1.87393
+I010=1.40E-02
+I015=1.40E-02
+I020=1.26E-02
+I025=1.27E-02
+I030=1.19E-02
+I035=9.91E-03
+I040=9.41E-03
+plot 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2):(($3/I010)*($1*Rg10)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2):(($3/I015)*($1*Rg15)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2):(($3/I020)*($1*Rg20)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2):(($3/I025)*($1*Rg25)**2)  w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2):(($3/I030)*($1*Rg30)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2):(($3/I035)*($1*Rg35)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2):(($3/I040)*($1*Rg40)**2) w yerrorbars pt 7 lt 1 ps 0.1 lw 0.5 lc rgbcolor "#808080" notitle
+repl 'TipAS_1.96mgml-1_10deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg10):(($2/I010)*($1*Rg10)**2) w p pt 7 ps 0.3 lc palette cb 10 notitle #t '283 K'
+repl 'TipAS_1.96mgml-1_15deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg15):(($2/I015)*($1*Rg15)**2) w p pt 7 ps 0.3 lc palette cb 15 notitle #t '288 K'
+repl 'TipAS_1.96mgml-1_20deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg20):(($2/I020)*($1*Rg20)**2) w p pt 7 ps 0.3 lc palette cb 20 notitle #t '293 K'
+repl 'TipAS_1.96mgml-1_25deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg25):(($2/I025)*($1*Rg25)**2) w p pt 7 ps 0.3 lc palette cb 25 notitle #t '298 K'
+repl 'TipAS_1.96mgml-1_30deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg30):(($2/I030)*($1*Rg30)**2) w p pt 7 ps 0.3 lc palette cb 30 notitle #t '303 K'
+repl 'TipAS_1.96mgml-1_35deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg35):(($2/I035)*($1*Rg35)**2) w p pt 7 ps 0.3 lc palette cb 35 notitle #t '308 K'
+repl 'TipAS_1.96mgml-1_40deg_sub_ave_cm-1_divconc_nm-1_merged.dat' u ($1*Rg40):(($2/I040)*($1*Rg40)**2) w p pt 7 ps 0.3 lc palette cb 40 notitle #t '313 K'
+set terminal svg dashed size 350,300 enhanced font 'FreeSans,18'
+set output 'Fig_S6_I.svg'
+repl
+set term qt
+
+
