@@ -1,0 +1,32 @@
+pymol ./Supplementary_figures/SI_appendix_fig7/Models/*cif
+
+bg_color white
+zoom complete=1
+hide everything
+show spheres
+set ray_opaque_background, off
+
+#
+hide everything
+select "CtermStruct", resi 46-145
+show cartoon, CtermStruct
+color brightorange, CtermStruct
+#
+
+#ndis
+select "Dummy", resi 1-54+144-145
+show spheres, Dummy
+color gray, Dummy
+select "CtermStruct", resi 55-143
+show cartoon, CtermStruct
+color brightorange, CtermStruct
+
+
+
+#nhhd
+select "NtermStruct", resi 1-30
+show cartoon, NtermStruct
+color teal, NtermStruct
+select "Dummy", resi 31-45
+show spheres, Dummy
+color gray, Dummy
